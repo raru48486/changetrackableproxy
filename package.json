@@ -1,6 +1,6 @@
 {
   "name": "changetrackableproxy",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "プロパティの変更を追跡できるプロキシクラス",
   "homepage": "https://github.com/raru48486/changetrackableproxy#readme",
   "bugs": {
@@ -10,11 +10,25 @@
     "type": "git",
     "url": "git+https://github.com/raru48486/changetrackableproxy.git"
   },
+  "files": ["dist"],
   "license": "MIT",
   "author": "raru48486",
-  "type": "module",
-  "main": "index.js",
+  "main": "./dist/changetrackableproxy.umd.js",
+  "module": "./dist/changetrackableproxy.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/changetrackableproxy.es.js",
+      "require": "./dist/changetrackableproxy.umd.js"
+    }
+  },
+  "engines": {
+    "node": ">=18.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev":"vite",
+    "build":"vite build"
+  },
+  "devDependencies": {
+    "vite": "^6.3.1"
   }
 }
