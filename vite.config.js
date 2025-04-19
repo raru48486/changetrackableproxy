@@ -6,7 +6,7 @@ const libraryName = 'changetrackableproxy';
 export default defineConfig({
     build: {
         lib: {
-            entry: resolve(__dirname, 'lib/main.js'),
+            entry: resolve(__dirname, 'lib/ctp.js'),
             name: libraryName,
             fileName: (format) => `${libraryName}.${format}.js`,
         },
