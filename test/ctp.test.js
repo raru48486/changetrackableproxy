@@ -65,3 +65,14 @@ test('rollbackChanges', () => {
     ctp.rollbackChanges(p);
     expect(ctp.getSource(p)).toEqual({ a: 1, b: 2 });
 });
+
+test('attributes', () => {
+    const a = { a: 1, b: 2, };
+    const p = new ctp(a);
+    expect(ctp.getAttribute(p, 'x')).toEqual({ ok: false });
+    expect(ctp.getAttribute(p, 'a', 'x')).toEqual({ ok: false });
+    ctp.setAttribute(p, 'x', 123);
+    ctp.setAttribute(p, 'a', 'x', true);
+    expect(ctp.getAttribute(p, 'x')).toEqual({ ok: true, value: 123 });
+    expect(ctp.getAttribute(p, 'a', 'x')).toEqual({ ok: true, value: true });
+});
