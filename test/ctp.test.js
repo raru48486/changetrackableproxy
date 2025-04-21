@@ -2,17 +2,20 @@ import { expect, test } from 'vitest';
 import { ChangeTrackableProxy as ctp } from '../lib/ctp.js';
 
 test('isChanged', () => {
-    const a = { a: 1, b: 2, };
+    const a = { a: 1, b: 2, d: new Date(2024, 1, 1) };
     const p = new ctp(a);
     expect(ctp.isChanged(p, 'a')).toBe(false);
     expect(ctp.isChanged(p, 'b')).toBe(false);
     expect(ctp.isChanged(p, 'c')).toBe(false);
+    expect(ctp.isChanged(p)).toBe(false);
     p.a = 100;
     p.c = 'hello';
+    p.d = new Date(2024, 1, 1);
     expect(ctp.isChanged(p, 'a')).toBe(true);
     expect(ctp.isChanged(p, 'b')).toBe(false);
     expect(ctp.isChanged(p, 'c')).toBe(true);
     expect(ctp.isChanged(p, 'd')).toBe(false);
+    expect(ctp.isChanged(p)).toBe(true);
 });
 
 test('getChange', () => {
