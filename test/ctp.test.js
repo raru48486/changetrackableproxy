@@ -57,6 +57,7 @@ test('commitChanges', () => {
     expect(ctp.getSource(p)).toEqual({ a: 1, b: 2 });
     ctp.commitChanges(p);
     expect(ctp.getSource(p)).toEqual({ a: 1000, b: 'hello', c: 1.2 });
+    expect(ctp.isChanged(p)).toBe(false);
 });
 
 test('rollbackChanges', () => {
