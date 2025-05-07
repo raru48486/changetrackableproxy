@@ -1,6 +1,6 @@
 {
   "name": "changetrackableproxy",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "プロパティの変更を追跡できるプロキシクラス",
   "homepage": "https://github.com/raru48486/changetrackableproxy#readme",
   "bugs": {
