@@ -81,4 +81,8 @@ test('attributes', () => {
     ctp.setAttribute(p, 'a', 'x', true);
     expect(ctp.getAttribute(p, 'x')).toEqual({ ok: true, value: 123 });
     expect(ctp.getAttribute(p, 'a', 'x')).toEqual({ ok: true, value: true });
+    expect(ctp.removeAttribute(p, 'x')).toBe(true);
+    expect(ctp.getAttribute(p, 'x')).toEqual({ ok: false });
+    expect(ctp.removeAttribute(p, 'a', 'x')).toBe(true);
+    expect(ctp.getAttribute(p, 'a', 'x')).toEqual({ ok: false });
 });
